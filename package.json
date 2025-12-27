@@ -1,0 +1,29 @@
+{
+  "name": "exsq-automation-test",
+  "version": "1.0.0",
+  "description": "Web QA Automation test - EXSQ",
+  "homepage": "https://github.com/titus1993/exsq-automation-test#readme",
+  "bugs": {
+    "url": "https://github.com/titus1993/exsq-automation-test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titus1993/exsq-automation-test.git"
+  },
+  "license": "ISC",
+  "author": "Marvin Pivaral",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "devDependencies": {
+    "@cypress/grep": "^5.0.1",
+    "cypress": "^15.8.1",
+    "cypress-if": "^1.13.2",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "cypress-plugin-steps": "^1.2.1"
+  }
+}
