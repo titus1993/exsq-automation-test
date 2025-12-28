@@ -17,7 +17,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:run:regression": "cypress run --env grepTags=@regression",
+    "cypress:run:smoke": "cypress run --env grepTags=@smoke"
   },
   "devDependencies": {
     "@cypress/grep": "^5.0.1",
