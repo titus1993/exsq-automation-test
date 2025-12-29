@@ -19,7 +19,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:run:regression": "cypress run --env grepTags=@regression",
-    "cypress:run:smoke": "cypress run --env grepTags=@smoke"
+    "cypress:run:smoke": "cypress run --env grepTags=@smoke",
+    "cypress:run:forms": "cypress run --env grepTags=@forms"
   },
   "devDependencies": {
     "@cypress/grep": "^5.0.1",

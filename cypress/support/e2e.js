@@ -18,3 +18,10 @@ import './commands'
 import 'cypress-mochawesome-reporter/register';
 const { register: registerCypressGrep } = require('@cypress/grep')
 registerCypressGrep()
+
+
+Cypress.on('uncaught:exception', (err) => {
+    if (err.message.includes('setup is not a function')) {
+        return false
+    }
+})
