@@ -23,3 +23,29 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('validateModalData', (modal, data) => {
+    cy.step('Validating modal data')
+    Object.entries(data).forEach(([label, value]) => {
+        modal.valueByLabel(label)
+            .should('contain.text', value)
+    })
+})
+
+Cypress.Commands.add('stubWindowOpenForUrl', () => {
+  cy.window().then(win => {
+    cy.stub(win, 'open').as('windowOpen')
+  })
+})
+
+Cypress.Commands.add('stubWindowOpenForMessage', () => {
+  cy.window().then(win => {
+    cy.stub(win, 'open').callsFake(() => {
+      return {
+        document: {
+          write: cy.stub().as('documentWrite')
+        }
+      }
+    }).as('windowOpen')
+  })
+})

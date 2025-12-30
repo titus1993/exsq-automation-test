@@ -17,9 +17,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "cypress:run:regression": "cypress run --env grepTags=@regression",
-    "cypress:run:smoke": "cypress run --env grepTags=@smoke"
+    "cypress:run": "cypress run --browser chrome",
+    "cypress:run:regression:chrome": "cypress run --env grepTags=@regression --browser chrome",
+    "cypress:run:positive:chrome": "cypress run --env grepTags=@positive --browser chrome",
+    "cypress:run:negative:chrome": "cypress run --env grepTags=@negative --browser chrome",
+    "cypress:run:happy:chrome": "cypress run --env grepTags=@happy --browser chrome",
+    "cypress:run:smoke:chrome": "cypress run --env grepTags=@smoke --browser chrome",
+    "cypress:run:forms:chrome": "cypress run --env grepTags=@practiceForm --browser chrome"
   },
   "devDependencies": {
     "@cypress/grep": "^5.0.1",
