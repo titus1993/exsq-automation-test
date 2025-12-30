@@ -1,6 +1,6 @@
 import MainPage from '../pages/main.page'
 
-describe('template spec', () => {
+describe('Menu Validation Test', () => {
   const mainPage = new MainPage()
 
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe('template spec', () => {
   })
 
   it('Forms Card', { tags: '@smoke' }, () => {    
-    mainPage.elements.formsCard().should('not.be.visible')
+    mainPage.elements.formsCard().should('be.visible')
     mainPage.elements.formsCard().click();
   })
 

@@ -1,0 +1,48 @@
+{
+    "students": [
+        {
+            "firstName": "Marvin",
+            "lastName": "Pivaral",
+            "email": "marvin.pivaral@test.com",
+            "gender": "Male",
+            "mobile": "1234567890",
+            "dayOfBirth": "31",
+            "monthOfBirth": "August",
+            "yearOfBirth": "1993",
+            "subjects": [
+                "Maths"
+            ],
+            "hobbies": [
+                "Sports"
+            ],
+            "picture": "test-file.txt",
+            "address": "123 Main Street",
+            "state": "NCR",
+            "city": "Delhi"
+        },
+        {
+            "firstName": "Maria",
+            "lastName": "Orellana",
+            "email": "maria.orellana@test.com",
+            "gender": "Female",
+            "mobile": "5698745632",
+            "dayOfBirth": "12",
+            "monthOfBirth": "January",
+            "yearOfBirth": "2000",
+            "subjects": [
+                "Maths",
+                "Biology",
+                "English",
+                "Physics"
+            ],
+            "hobbies": [
+                "Reading",
+                "Music"
+            ],
+            "picture": "test-file.txt",
+            "address": "515 Second Avenue",
+            "state": "Rajasthan",
+            "city": "Jaipur"
+        }
+    ]
+}

@@ -17,6 +17,8 @@ class FormsPage {
             mobileNumberInput: () => cy.get('#userNumber'),
             dateOfBirthInput: () => cy.get('#dateOfBirthInput'),
             subjectsContainer: () => cy.get('#subjectsContainer'),
+            subjectsItems: () => cy.get('.subjects-auto-complete__multi-value__label'),
+            clearAllSubjectsButton: () => cy.get('.subjects-auto-complete__clear-indicator'),
             sportsCheckbox: () => cy.contains('label.custom-control-label', 'Sports'),
             readingCheckbox: () => cy.contains('label.custom-control-label', 'Reading'),
             musicCheckbox: () => cy.contains('label.custom-control-label', 'Music'),
@@ -27,7 +29,19 @@ class FormsPage {
             submitButton: () => cy.get('#submit'),
         },
         thankYouModal: {
-            root: () => cy.get('.modal-dialog.modal-lg'),
+            root: () => cy.get('.modal-content'),
+            title: () => cy.get('#example-modal-sizes-title-lg'),
+            body: () => cy.get('.modal-body'),
+            table: () => cy.get('.table-responsive table'),
+            rows: () => cy.get('.table-responsive tbody tr'),
+            labels: () =>
+                cy.get('.table-responsive tbody tr td:first-child'),
+            values: () =>
+                cy.get('.table-responsive tbody tr td:last-child'),
+            valueByLabel: (labelText) =>
+                cy.contains('.table-responsive tbody tr td', labelText)
+                    .next(),
+            closeButton: () => cy.get('#closeLargeModal')
         }
     }
 
@@ -73,6 +87,16 @@ class FormsPage {
             .click()
     }
 
+    clickClearAllSubjectsButton() {
+        this.elements.practiceForm.clearAllSubjectsButton()
+            .click()
+    }
+
+    clickThankYouModalCloseButton() {
+        this.elements.thankYouModal.closeButton()
+            .click()
+    }
+
     typeMobileNumber(mobileNumber) {
         this.elements.practiceForm.mobileNumberInput()
             .clear()
@@ -87,8 +111,6 @@ class FormsPage {
             .contains(day)
             .click()
     }
-
-
 
     checkSportsCheckbox() {
         this.elements.practiceForm.sportsCheckbox()
@@ -127,12 +149,6 @@ class FormsPage {
             .type(`${city}{enter}`)
     }
 
-    addSubject(subject) {
-        this.elements.practiceForm.subjectsContainer()
-            .click()
-            .type(`${subject}{enter}`)
-    }
-
     uploadFile(fileName) {
         this.elements.practiceForm.selectPictureChooseFile()
             .selectFile(`cypress/fixtures/${fileName}`)
@@ -167,6 +183,45 @@ class FormsPage {
     }
 
 
+
+    addSubjects(subjects) {
+        for (let subject of subjects) {
+            this.elements.practiceForm.subjectsContainer()
+                .click()
+                .type(`${subject}{enter}`)
+        }
+    }
+
+    removeSubjects(subjects) {
+        subjects.forEach(subject => {
+            cy.contains('.subjects-auto-complete__multi-value__label', subject)
+                .parents('.subjects-auto-complete__multi-value')
+                .find('.subjects-auto-complete__multi-value__remove')
+                .click()
+        })
+    }
+
+    selectGender(gender) {
+        if (gender === 'Male') {
+            this.clickGenderMaleRadioButton()
+        } else if (gender === 'Female') {
+            this.clickGenderFemaleRadioButton()
+        } else if (gender === 'Other') {
+            this.clickGenderOtherRadioButton()
+        }
+    }
+
+    checkHobbies(hobbies) {
+        for (let hobby of hobbies) {
+            if (hobby === 'Sports') {
+                this.checkSportsCheckbox()
+            } else if (hobby === 'Reading') {
+                this.checkReadingCheckbox()
+            } else if (hobby === 'Music') {
+                this.checkMusicCheckbox()
+            }
+        }
+    }
 }
 
 export default FormsPage
