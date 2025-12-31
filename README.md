@@ -76,6 +76,7 @@ npm run cypress:run:chrome
 ```
 You can take a look into package.json file to see other available commands to run tests
 
+After any execution in headless mode executed always it will generate the reports with Mochawesome and it will be opened automatly 
 
 ## 📂 Page Object Model — Example
 
