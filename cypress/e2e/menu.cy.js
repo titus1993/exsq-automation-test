@@ -1,13 +1,13 @@
 import MainPage from '../pages/main.page'
 
-describe('Menu Validation Test', () => {
-  const mainPage = new MainPage()
+const mainPage = new MainPage()
 
+describe('Menu Validation Test', () => {
   beforeEach(() => {
     mainPage.visit()
   })
 
-  it('Elements Card', { tags: ['@smoke', '@regression'] }, () => {    
+  it('Elements Card', { tags: ['@smoke'] }, () => {    
     mainPage.elements.elementsCard().should('be.visible')
     mainPage.elements.elementsCard().click();
   })
