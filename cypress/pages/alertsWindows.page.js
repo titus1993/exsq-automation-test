@@ -6,13 +6,13 @@ class AlertsWindowsPage {
     elements = {
         logo: () => cy.get('#app').find('header').find('img'),
         browserWindowsItem: () => cy.contains('.element-list li', 'Browser Windows'),
-        alertsItem: () => cy.contains('.element-list li', 'Alerts'),
         browserWindowsForm: {
             root: () => cy.get('#browserWindows'),
             tabButton: () => cy.get('#tabButton'),
             windowButton: () => cy.get('#windowButton'),
             messageWindowButton: () => cy.get('#messageWindowButton'),
         },
+        alertsItem: () => cy.contains('.element-list li', 'Alerts'),
         alertsForm: {
             root: () => cy.get('#javascriptAlertsWrapper'),
             alertButton: () => cy.get('#alertButton'),

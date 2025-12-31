@@ -2,11 +2,10 @@ import MainPage from '../../pages/main.page'
 import FormsPage from '../../pages/forms.page'
 
 const { students } = require('../../fixtures/data.json')
+const mainPage = new MainPage()
+const formsPage = new FormsPage()
 
 describe('Forms Page Tests', () => {
-    const mainPage = new MainPage()
-    const formsPage = new FormsPage()
-
     beforeEach(() => {
         cy.step('Navigate to Practice Form')
         mainPage.visit()

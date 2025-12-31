@@ -1,10 +1,10 @@
 import MainPage from '../../pages/main.page'
 import AlertsWindowsPage from '../../pages/alertsWindows.page'
 
-describe('Windows and AlertsTests', () => {
-    const mainPage = new MainPage()
-    const alertsWindowsPage = new AlertsWindowsPage()
+const mainPage = new MainPage()
+const alertsWindowsPage = new AlertsWindowsPage()
 
+describe('Windows and AlertsTests', () => {
     describe('Windows Page Tests', () => {
         beforeEach(() => {
             cy.step('Navigate to Window Section')
@@ -141,9 +141,9 @@ describe('Windows and AlertsTests', () => {
             alertsWindowsPage.clickPromptButton()
 
             cy.step('Validate prompt text result')
-            
+
             alertsWindowsPage.elements.alertsForm.promptResult()
-                 .should('contain', 'You entered Marvin')
+                .should('contain', 'You entered Marvin')
         })
     })
 })
